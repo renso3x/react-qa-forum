@@ -1,26 +1,66 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import { Container, Row, Col, Jumbotron, Button } from 'reactstrap';
+import { connect } from 'react-redux';
 
-function App() {
+import {
+  fetchAllQuestions,
+  createQuestion
+} from './actions/questions';
+import { fetchAllTopics } from './actions/topics';
+
+import Header from './components/Header';
+import ModalForm from './components/ModalForm';
+import BigJumbotron from './components/BigJumbotron';
+import MainContent from './components/MainContent';
+
+function App({
+  fetchAllQuestions,
+  fetchAllTopics,
+  createQuestion
+}) {
+  const [state, setState] = useState({
+    showModalForm: false,
+  });
+
+  useEffect(() => {
+    fetchAllQuestions();
+    fetchAllTopics();
+  }, [state]);
+
+  const onShowModalForm = () => {
+    setState({
+      ...state,
+      showModalForm: !state.showModalForm
+    })
+  };
+
+  const submitForm = (payload) => {
+    onShowModalForm();
+    createQuestion({
+      ...payload,
+      answers: []
+    })
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Container>
+        <Header />
+        <BigJumbotron showModalForm={onShowModalForm} />
+        <MainContent />
+      </Container>
+
+      <ModalForm
+        isOpenModal={state.showModalForm}
+        onSave={submitForm}
+        onToggle={onShowModalForm}
+      />
     </div>
   );
 }
 
-export default App;
+export default connect(null, {
+  fetchAllQuestions,
+  fetchAllTopics,
+  createQuestion,
+})(App);

@@ -5,9 +5,69 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(244, 245, 246);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.bg-light {
+  background-color: #fff !important;
+}
+
+.lead {
+  border-radius: 0;
+  text-align: center;
+}
+.list-group-item {
+  border-radius: 0;
+}
+.aside__container {
+  background-color: #fff;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.aside__active {
+  text-decoration: none;
+  font-weight: bold;
+  background-color: rgb(244, 245, 246);
+  color: rgb(40, 111, 220);
+}
+
+.content__list_navbar {
+  width: 100%;
+  background-color: #fff;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.list-group-item {
+  border: none;
+}
+
+.content__list_cards {
+  margin-bottom: 10px;
+}
+
+.tags__lists .list-group-item {
+  padding: 5px;
+  background-color: transparent;
+}
+
+.content__list_cards .card-link {
+  color:  rgb(76, 76, 76);
+}
+
+.content__list_navbar .list-group-item {
+  color: rgb(154, 161, 179);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.content__list_navbar_active {
+  color: rgb(40, 111, 220) !important;
+}
+
