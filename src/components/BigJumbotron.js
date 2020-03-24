@@ -24,7 +24,7 @@ const BigJumbotron = ({
 }
 
 BigJumbotron.propTypes = {
-  onShowModalForm: PropTypes.bool,
+  onShowModalForm: PropTypes.func,
   selectedTopic: PropTypes.string
 };
 

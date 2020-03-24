@@ -46,7 +46,7 @@ function App({
     <div className="App">
       <Container>
         <Header />
-        <BigJumbotron showModalForm={onShowModalForm} />
+        <BigJumbotron onShowModalForm={onShowModalForm} />
         <MainContent />
       </Container>
 
